@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+ node:
+     container_name: nodeJS_app
+     build:
+      context: ./
+      dockerfile: Dockerfile
+     user: "node"
+     environment:
+       - NODE_ENV=production
+     volumes:
+       - .:/home/app
+     ports:
+       - "8080:8080"
