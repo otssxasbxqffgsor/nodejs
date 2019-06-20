@@ -13,4 +13,4 @@ cp.on('close',function(){
 
 setTimeout(function(){
     cp.stdin.write('stop');
-},10000);
+},4000);

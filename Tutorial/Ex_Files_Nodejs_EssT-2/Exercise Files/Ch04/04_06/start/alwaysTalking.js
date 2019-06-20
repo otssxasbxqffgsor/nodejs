@@ -14,6 +14,9 @@ process.stdout.write(`${sayings[i]} \n`);
 }, 1000);
 
 process.stdin.on('data', function (data){
-    console.log(`STD Data Received -> ${data.toString().trim()}`);
+    if (data.toString().trim() === 'stop')
+    {
+        console.log(`STD Data Received -> ${data.toString().trim()}`);
     process.exit();
+    }
 });
