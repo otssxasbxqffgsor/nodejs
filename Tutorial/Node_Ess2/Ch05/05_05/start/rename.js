@@ -2,7 +2,7 @@ var fs = require('fs');
 
 fs.renameSync('./lib/project-config.js','./lib/config.json');
 
-console.log('Congis json file renamed');
+console.log('Config json file renamed');
 
 fs.rename('./lib/notes.md','./notes.md', function(err){
     if (err){
