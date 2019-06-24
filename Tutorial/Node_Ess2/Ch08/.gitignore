@@ -7,3 +7,6 @@ pids
 *.pid
 *.seed
 *.pid.lock
+
+# json lock files 
+package-lock.json
