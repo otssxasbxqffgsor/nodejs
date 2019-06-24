@@ -1,0 +1,15 @@
+- use npm to init package.json
+npm init
+package keeps track of our dependencies
+- Express framework:
+// -- save adds this to our package.json to keep track of init
+npm install express --save
+// cross origin reference source   
+npm install cors --save
+// prase to json 
+npm install body-parser --save
+// finally install all required dependencies 
+npm install
+// remove package --save saves it to the json file
+// npm remove body-parser --save
+
