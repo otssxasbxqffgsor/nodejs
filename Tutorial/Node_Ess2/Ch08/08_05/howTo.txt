@@ -13,5 +13,9 @@ npm install
 // remove package --save saves it to the json file
 // npm remove body-parser --save
 
+// list of processes that run on 3000
+lsof -i:3000
 
+// kill the process id 240367
+kill -9 24067
 
