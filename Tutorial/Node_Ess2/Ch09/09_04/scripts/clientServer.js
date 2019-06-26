@@ -19,7 +19,7 @@ document.forms[0].onsubmit = function () {
     var input = document.getElementById('message');
     ws.send(input.value);
     logData.push(input.value);
-    console.log(`${logData.toLocaleString() }`);
+    printLog(logData);
     input.value = '';
 };
 
@@ -31,4 +31,16 @@ function printMessage(message) {
     var p = document.createElement('p');
     p.innerText = message;
     document.querySelector('div.messages').appendChild(p);
+}
+
+function printLog(logData){
+    var p = document.createElement('li');
+
+    logData.forEach(element => {
+        p.innerHTML+= `${'<div>'+  element +'</div>' }`;
+    });
+
+    // p.innerText= logData.toLocaleString();
+    document.querySelector('.log').appendChild(p);
+    console.log(`${logData.toLocaleString() }`);
 }
