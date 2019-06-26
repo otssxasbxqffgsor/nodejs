@@ -7,7 +7,7 @@ const incTime = () => {
   const p = Math.floor((currentTime / waitTime) * 100);
   process.stdout.clearLine();
   process.stdout.cursorTo(0);
-  process.stdout.write(`waiting ... ${p}`);
+  process.stdout.write(`waiting ... ${p}%`);
 };
 
 console.log(`setting a ${waitTime / 1000} second delay`);
