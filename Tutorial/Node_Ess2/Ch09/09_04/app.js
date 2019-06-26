@@ -1,4 +1,4 @@
-var bodyParser = require("body-parser");
+
 var WebSocketServer = require('ws').Server;
 var wss = new WebSocketServer({ port: 3000});
 
