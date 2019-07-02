@@ -1,5 +1,5 @@
 const parseArgs = require("minimist");
-
+const { stdout: log } = require("single-line-log");
 const { time } = parseArgs(process.argv);
 
 if (!time) {
@@ -10,11 +10,18 @@ if (!parseInt(time)) {
   throw new Error("--time must be a number");
 }
 
-console.log(time);
+const count = parseInt(time);
+let message = "";
 
-//
-// Print stars in-line
-//
+for (let i = 0; i < count; i++) {
+  message += "*";
+}
+
+log(message);
+
+setTimeout(() => {
+  log("overwrites line");
+}, 2000);
 
 //
 // Run a timer and remove stars
