@@ -12,5 +12,8 @@
     "timer"
   ],
   "author": "Alex Banks",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
 }
