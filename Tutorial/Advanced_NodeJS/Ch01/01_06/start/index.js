@@ -1,4 +1,23 @@
 var fs = require('fs');
+var {promisify} = require ('util');
+var writeFile = promisify(fs.writeFile);
+var unlink = promisify(fs.unlink);
+var readdir = promisify(fs.readdir);
+var been = ()=>{ console.log('BeepQ')}
+var delay = (seconds)=> new Promise ((resolves=>{
+  setTimeout(resolves, seconds*1000);
+}));
+
+
+async function start (){
+  var files = await readdir(__dirname);
+  console.log(files)
+}
+
+start();
+
+/*
+var fs = require('fs');
 var { promisify } = require('util');
 var writeFile = promisify(fs.writeFile);
 var unlink = promisify(fs.unlink);
@@ -28,3 +47,4 @@ doStuffSequentially()
   .then(() => console.log('again again!!!'))
   .then(() => doStuffSequentially())
   .then(() => console.log('enough already...'));
+*/
