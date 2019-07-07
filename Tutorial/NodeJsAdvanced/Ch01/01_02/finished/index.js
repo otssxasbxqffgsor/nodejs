@@ -1,9 +1,9 @@
-var delay = (seconds) => new Promise((resolves, rejects) => {
+
+let delay = (seconds) => new Promise((resolves, rejects) => {
     setTimeout(() => {
         resolves('the long delay has ended')
     }, time);
 });
-
 delay(1)
   .then(console.log)
   .then(() => 42)
