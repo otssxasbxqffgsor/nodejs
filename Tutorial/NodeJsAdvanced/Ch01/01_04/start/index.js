@@ -1,3 +1,10 @@
+var fs = require ('fs');
+var { promisify } = require('util');
+var writeFile = promisify(fs.writeFile);
+writeFile('sample.txt', 'this is a sample file')
+    .then( ()=>{ console.log('file successfully created!'); })
+    .catch( (error)=>{ console.log('error creating file'); });
+/*
 var delay = (seconds, callback) => {
     if (seconds > 3) {
         callback(new Error(`${seconds} seconds it too long!`));
@@ -16,3 +23,4 @@ delay(2, (error, message) => {
         console.log(message);
     }
 });
+*/
