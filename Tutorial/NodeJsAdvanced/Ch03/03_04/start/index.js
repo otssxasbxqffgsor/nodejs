@@ -2,11 +2,12 @@ const { createServer } = require('http');
 const {
   stat,
   createReadStream,
-  createWriteStream 
+  createWriteStream
 } = require('fs');
 const { promisify } = require('util');
 const fileName = '../../powder-day.mp4';
 const fileInfo = promisify(stat);
+const multiparty = require('multiparty');
 
 const respondWithVideo = async (req, res) => {
   const { size } = await fileInfo(fileName);
@@ -33,9 +34,15 @@ const respondWithVideo = async (req, res) => {
 
 createServer((req, res) => {
   if (req.method === 'POST') {
-    req.pipe(res);
-    req.pipe(process.stdout);
-    req.pipe(createWriteStream('./upload.file'));
+    let form = new multiparty.Form();
+    form.on('part', (part) => {
+      part.pipe(createWriteStream(`./${part.filename}`))
+        .on('close', () => {
+            res.writeHead(200, { 'Content-Type': 'text/html' });
+            res.end(`<h1>File uploaded: ${part.filename}</h1>`);
+        })
+    });
+    form.parse(req);
   } else if (req.url === '/video') {
     respondWithVideo(req, res);
   } else {
@@ -49,3 +56,12 @@ createServer((req, res) => {
   }
 
 }).listen(3000, () => console.log('server running - 3000'));
+
+
+// Killing the process. 
+process.stdout.on('data',(data)=>{
+  if (data.toString().trim() === "exit"){
+      process.exit(1);
+  }
+  console.log (data.toString().trim());
+});
