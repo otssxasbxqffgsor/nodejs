@@ -11,7 +11,7 @@ readStream.on('end', () => {
 });
 
 readStream.on('error', (error) => {
-  console.log('an error has occured.')
+  console.log('an error has occured.');
   console.error(error);
 });
 
