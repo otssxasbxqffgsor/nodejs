@@ -1,5 +1,6 @@
 const express = require("express");
 const dictionaryRoutes = require("./dictionary-routes");
+const { save } = require('./lib');
 const request = require("supertest");
 
 jest.mock("../data/skiTerms.json", () => [
@@ -7,6 +8,10 @@ jest.mock("../data/skiTerms.json", () => [
   { term: "bbb", defined: "test b" },
   { term: "ccc", defined: "test c" }
 ]);
+
+jest.mock("./lib", () => ({
+  save: jest.fn()
+}));
 
 const app = express();
 app.use("/dictionary", dictionaryRoutes);
@@ -17,6 +22,18 @@ describe("dictionary-routes", () => {
     expect(body).toEqual([
       { term: "aaa", defined: "test a" },
       { term: "bbb", defined: "test b" },
+      { term: "ccc", defined: "test c" }
+    ]);
+  });
+  it('DELETE /dictionary/bbb-success', async()=>{
+    const { body } = await request(app).delete('/dictionary/bbb');
+    expect (body).toEqual({
+      status: "success",
+      removed: "bbb",
+      newLength: 2
+    });
+    expect (save).toHaveBeenCalledWith([
+      { term: "aaa", defined: "test a" },
       { term: "ccc", defined: "test c" }
     ]);
   });
