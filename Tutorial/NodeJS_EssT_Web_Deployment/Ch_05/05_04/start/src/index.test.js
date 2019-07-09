@@ -1,9 +1,10 @@
-const countLetters = (char, str) =>
-  str.split("").filter(l => char === l).length;
+const appMock = require('./app');
+require('./index')
 
-describe("TDD example", () => {
-  it("counts letters correctly", () => {
-    const results = countLetters("p", "happy");
-    expect(results).toEqual(2);
+jest.mock('./app');
+
+describe('index.js - app entry', ()=>{
+  it('should call app.listen()',()=>{
+    expect(appMock.listen).toHaveBeenCalled();
   });
 });
