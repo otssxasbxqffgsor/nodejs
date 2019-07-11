@@ -1,19 +1,14 @@
-class Logger {
-
-    constructor() {
+class Logger{
+    constructor(){
         this.logs = [];
     }
-
-    get count() {
+    get count(){
         return this.logs.length;
     }
-
-    log(message) {
+    log(message){
         const timestamp = new Date().toISOString();
-        this.logs.push({ message, timestamp });
-        console.log(`${timestamp} - ${message}`);
+        this.logs.push({message, timestamp});
+        console.log(`${timestamp} - ${message} - Count[${this.logs.length}]`);
     }
-
 }
-
 module.exports = Logger;

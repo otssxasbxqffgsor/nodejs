@@ -23,4 +23,4 @@ var ski_shop = new Store('Steep and Deep Supplies', [
 logger.log('finished config...');
 
 console.log(`${logger.count} logs total`);
-logger.logs.map(log => console.log(`   ${log.message}`));
+logger.logs.map(log => console.log(` [${log.message}] [${log.timestamp}]`));
