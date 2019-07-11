@@ -1,13 +1,9 @@
 class Person {
-
-    constructor(name='unnamed person')  {
-        this.name = name;
+    constructor (name='unamed person'){
+        this.name= 0;
     }
-
-    toString() {
+    toString(){
         return JSON.stringify(this);
     }
-
 }
-
 module.exports = Person;
