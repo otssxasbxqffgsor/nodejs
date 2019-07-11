@@ -16,4 +16,14 @@ class Logger {
 
 }
 
-module.exports = Logger;
+class SignleTone{
+    constructor(){
+        if(!SignleTone.instace){
+            SignleTone.instace = new Logger;
+        }
+    }
+    getInstance(){
+        return SignleTone.instace
+    }
+}
+module.exports = SignleTone;
