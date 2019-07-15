@@ -28,9 +28,6 @@ class CreateCommand {
     execute() {
         writeFile(this.fullPath, this.body, f => f);
     }
-    undo(){
-        unlink(this.fullPath, f => f);
-    }
 
 }
 
