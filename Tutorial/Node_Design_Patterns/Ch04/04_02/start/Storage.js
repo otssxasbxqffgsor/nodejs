@@ -1,31 +1,33 @@
-class Storage{
-    constructor(name, inventory = [], dilveryTime = 0){
+class Storage {
+    constructor(name, inventory = [], deliveryTime = 0){
         this.name = name;
         this.inventory = inventory;
         this.deliveryTime = deliveryTime;
         this.next = null;
     }
     lookInLocalInventory(itemName){
-        var index = this.inventory.map( item => item.name).indexOf(itemName);
-        return this.inventory[index];
+        var index = this.inventory.map(item=> item.name).indexOf(itemName);
+        return index;
     }
-    setNext(storage){
-        this.next = storage;
+    setNext(next){
+        this.next = next;
     }
     find(itemName){
         var found = this.lookInLocalInventory(itemName);
         if (found){
-            return{
-                name: founud.name,
+            return {
+                name : found.name,
                 qty: found.qty,
-                localtion: this.name,
-                deliveryTime: (this.deliveryTime === 0) ? 'now' : `${this.deliveryTime}`;
-            };
-        } else if (this.next){
+                location: this.name,
+                deliveryTime: (this.deliveryTime === 0) ? 'now': `${this.deliveryTime}`;
+            }
+        } else if(this.next){
             return this.next.find(itemName);
         } else {
-            return `We do not carry ${itemName}`;
+            return ` we don not carry ${itemName}`;
         }
+        
     }
-    
+
+module.exports = Stroage;
 }
