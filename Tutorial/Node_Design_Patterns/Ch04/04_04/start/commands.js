@@ -1,34 +1,26 @@
-var { writeFile } = require('fs');
+var {writeFile} = require('fs');
 var path = require('path');
 
-class ExitCommand {
-
-    get name() {
-        return 'exit... bye!';
+class ExitCommand{
+    
+    get name(){
+        return 'exit ... bye!'
     }
-
-    execute() {
+    execute(){
         process.exit(0);
     }
-
 }
-
-class CreateCommand {
-
-    constructor(fileName, text) {
+class CreateCommand{
+    constructor(fileName, text){
         this.fileName = fileName;
         this.body = text;
         this.fullPath = path.join(__dirname, fileName);
     }
-
-    get name() {
+    get name(){
         return `create ${this.fileName}`;
     }
-
-    execute() {
-        writeFile(this.fullPath, this.body, f => f);
+    execute(){
+        writeFile(this.fileName, this.body, f=>f);
     }
-
 }
-
-module.exports = { ExitCommand, CreateCommand };
+module.exports = {ExitCommand, CreateCommand};

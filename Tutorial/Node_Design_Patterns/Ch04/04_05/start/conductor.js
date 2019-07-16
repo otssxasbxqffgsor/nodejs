@@ -10,21 +10,20 @@ class Conductor {
         command.execute();
         this.history.push(command);
     }
-
-    printHistory() {
-        this.history.forEach(command => console.log(command.name));
+    printHistory(){
+        history.forEach(element => {
+            console.log(element.name);
+        });
     }
-
-    undo() {
+    undo(){
         var command = this.history.pop();
-        console.log(`undo ${command.name}`);
+        console.log(`undo ${command}`);
         command.undo();
         this.undone.push(command);
     }
-
-    redo() {
+    redo(){
         var command = this.undone.pop();
-        console.log(`redo ${command.name}`);
+        console.log(`redo ${command.name} `);
         command.execute();
         this.history.push(command);
     }
