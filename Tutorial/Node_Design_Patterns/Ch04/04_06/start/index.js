@@ -1,7 +1,7 @@
 var InventoryItem = require('./InventoryItem');
 var Iterator = require('./Iterator');
 
-require('readline').emitKeypressEvents(process.stdin);
+require('readline').emitKeypressEvents
 process.stdin.setRawMode(true);
 
 console.log('Press any direction key...');
@@ -15,35 +15,27 @@ var inventory = new Iterator([
     new InventoryItem("Shake", 4.99),
     new InventoryItem("Jeans", 59.99),
     new InventoryItem("Shoes", 39.99)
+
 ]);
 
-process.stdin.on('keypress', (str, key) => {
-
+process.stdin.on('keypress', (str, key)=>{
     process.stdout.clearLine();
     process.stdout.cursorTo(0);
-
-    switch(key.name) {
-
-        case 'right' :
+    switch(key.name){
+        case 'right':
             inventory.next().writeLn();
             break;
-
-        case 'left' :
+        case 'left':
             inventory.prev().writeLn();
             break;
-
-        case 'down' :
+        case 'down':
             inventory.last().writeLn();
             break;
-
-        case 'up' :
+        case 'up':
             inventory.first().writeLn();
-            break;
-
-        case 'c' :
-            if (key.ctrl) {
+        case 'c':
+            if(key.ctrl){
                 process.exit()
             }
     }
-
 });

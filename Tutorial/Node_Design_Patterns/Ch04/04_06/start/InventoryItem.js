@@ -1,11 +1,11 @@
 class InventoryItem {
+
     constructor(name, price){
-        this.name;
-        this.price;
+        this.name = name;
+        this.price = price;
     }
+    
     writeLn(){
-        process.stdout.write(`${this.name}: $${this.price}`);
+        process.stdout.write(`${this.name} :$${this.price}`);
     }
 }
-
-module.exports = InventoryItem;
