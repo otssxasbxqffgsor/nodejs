@@ -13,6 +13,7 @@ class Logger {
     }
 
     changeStrategy(newStrategy) {
+        LogStrategy.toConsole('Kian Davoudi Rad');
         this.strategy = LogStrategy[newStrategy];
     }
 
