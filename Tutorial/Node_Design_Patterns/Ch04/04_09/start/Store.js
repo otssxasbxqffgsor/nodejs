@@ -14,7 +14,8 @@ class Store {
     }
 
     sale(discount) {
-        this.subscribers.forEach(observer => observer.notify(this.name, discount));
+        this.subscribers.forEach(observer => observer.
+            notify(this.name, discount));
     }
 
 }
