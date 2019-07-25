@@ -1,12 +1,7 @@
 var LogStrategy = require('./LogStrategy');
-var config = {
-    "logs": {
-       "strategy": "noDate"
-    }
- };
- 
+var config = require('./config');
 
- class Logger {
+class Logger {
 
     constructor(strategy='toConsole') {
         this.logs = [];
