@@ -1,18 +1,20 @@
 class Store {
 
     constructor(name) {
+        this.sales = [];
         this.name = name;
         this.subscribers = [];
     }
-    subscrbe(observer){
+    notify(storeName, discounut){
+        console.log(`${this.name}, there is sale at ${storeName}! ${discounut}% off everything!`);
+    }
+
+    subscribe(observer) {
         this.subscribers.push(observer);
     }
 
     sale(discount) {
-        //console.log(`Announce sale at ${this.name}, ${discount}% off everything!`);
-        this.subscribers.forEach(observer => {
-            observer.notify(this.name, discount);
-        });
+        this.subscribers.forEach(observer => observer.notify(this.name, discount));
     }
 
 }

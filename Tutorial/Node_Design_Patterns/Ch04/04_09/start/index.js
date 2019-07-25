@@ -2,25 +2,35 @@ var Store = require('./Store');
 var Shopper = require('./Shopper');
 var Mall = require('./Mall');
 
-var catsAndThings = new Store("Cats & Things");
-var insAndOuts = new Store("Ins and Outs");
+var storeA = new Store('Store A');
+var storeB = new Store('Store B');
 
-var alex = new Shopper("Alex");
-var eve = new Shopper("Eve");
-var sharon = new Shopper("Sharon");
-var mike = new Shopper("Mike");
+var shopperA = new Shopper('Shopper A');
+var shopperB = new Shopper('Shopper B');
 
-var valleyMall = new Mall();
+var mallA = new Mall('Mall A');
+var mallB = new Mall('Mall B');
 
-catsAndThings.subscribe(alex);
-catsAndThings.subscribe(eve);
-catsAndThings.subscribe(mike);
-catsAndThings.subscribe(valleyMall);
+storeA.subscribe(shopperA);
+storeA.subscribe(shopperB);
+storeA.subscribe(mallA);
+storeA.subscribe(mallB);
 
-insAndOuts.subscribe(sharon);
-insAndOuts.subscribe(valleyMall);
+storeB.subscribe(shopperA);
+storeB.subscribe(shopperB);
+storeB.subscribe(mallA);
+storeB.subscribe(mallB);
 
-catsAndThings.sale(20);
-insAndOuts.sale(50);
+storeA.sale(20);
+storeB.sale(50);
 
-console.log( valleyMall.sales );
+// console.log(mallA.sales);
+// console.log(mallB.sales);
+
+mallA.subscribe(shopperA);
+mallA.subscribe(shopperB);
+mallA.subscribe(storeA);
+mallB.subscribe(storeB);
+
+mallA.sale(10);
+// console.log(storeA.sales)
