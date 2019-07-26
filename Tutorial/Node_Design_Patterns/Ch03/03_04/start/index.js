@@ -1,4 +1,6 @@
-var fs = require('fs');
+var fsProxy = require('./FS_Proxy');
+var fs = require('fs'); 
+fs = new fsProxy(fs);
 var path = require('path');
 
 var txtFile = path.join(__dirname, 'Readme.txt');
