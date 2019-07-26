@@ -14,7 +14,8 @@ var group_food = new CatalogGroup("Food for while you try on clothes", [
 
 var keychain = new CatalogItem("Key Chain", .99);
 
-var catalog = new CatalogGroup("Clothes and Food", [keychain, group_shoes, group_food]);
+var catalog = new CatalogGroup("Clothes and Food", 
+            [keychain, group_shoes, group_food]);
 
 console.log(`$${catalog.total}`);
 

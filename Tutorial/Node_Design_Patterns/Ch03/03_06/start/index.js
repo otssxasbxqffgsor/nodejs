@@ -7,16 +7,16 @@ var flipFlops = new CatalogItem("California work boots", 19.99);
 
 var group_shoes = new CatalogGroup("Shoes and Such", [boots, sneakers, flipFlops]);
 
-var group_food = new CatalogGroup('Food for while you try on clothes',
-    new CatalogItem('milkshake', 5.99),
-    new CatalogItem('French fries', 3.99)
-);
+var group_food = new CatalogGroup("Food for while you try on clothes", [
+    new CatalogItem("Milkshake", 5.99),
+    new CatalogItem("French Fries", 3.99)
+]);
 
-var keyChain = new CatalogItem('key chain', .99);
-var catalog = new CatalogGroup(
-    'clothes and food', [keyChain, group_shoes, group_food]
-);
+var keychain = new CatalogItem("Key Chain", .99);
 
-console.log(`${catalog.total}`);
+var catalog = new CatalogGroup("Clothes and Food", 
+            [keychain, group_shoes, group_food]);
+
+console.log(`$${catalog.total}`);
 
 catalog.print();

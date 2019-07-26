@@ -6,7 +6,8 @@ class CatalogGroup {
     }
 
     get total() {
-        return this.composites.reduce((total, nextItem) => total + nextItem.total,0);
+        return this.composites.reduce((total, nextItem) => 
+        total + nextItem.total,0);
     }
 
     print() {
