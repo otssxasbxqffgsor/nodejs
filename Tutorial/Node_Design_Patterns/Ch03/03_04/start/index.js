@@ -1,4 +1,4 @@
-var fsProxy = require('./FS_Proxy');
+var fsProxy = require('./fsProxy');
 var fs = require('fs'); 
 fs = new fsProxy(fs);
 var path = require('path');
