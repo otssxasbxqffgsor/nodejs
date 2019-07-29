@@ -7,13 +7,16 @@ class Shopper {
     }
 
     purchase(item) {
+        if(item){
         if (item.price > this.account) {
-            console.log(`Cannot afford ${item.name}`);
+            console.log(`Cannot afford ${item.name}, your account has $${this.account}`);
         } else {
             console.log(`Purchasing item ${item.name}`);
             this.account -= item.price;
             this.items.push(item);
-        }
+            }
+        } else {console.log(`the ${item} is not valid`);}   
+        
     }
 
     printStatus() {

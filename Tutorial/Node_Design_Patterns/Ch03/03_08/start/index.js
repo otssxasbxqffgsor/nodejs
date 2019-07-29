@@ -1,21 +1,28 @@
-var Shopper = require('./Shopper');
-var {
-  InventoryItem,
-  GoldenInventoryItem,
-  DiamondInventoryItem
-} = require('./InventoryItem');
+var shopper = require('./Shopper');
+var item = require ('./Item');
 
-var alex = new Shopper('Alex', 100);
+var goldenItem = require('./GoldenItem');
+var diamondItem = require('./DiamondItem');
 
-var walkman = new InventoryItem("Walkman", 29.99);
-var necklace = new InventoryItem("Necklace", 9.99);
+var items = []
+var shoppers = [];
+shoppers.push (new shopper('kian', 1000));
+items.push(new item('itemA', 30));
+items.push(new item('itemB', 40));
 
-var gold_necklace = new GoldenInventoryItem(necklace);
-var diamond_gold_necklace = new DiamondInventoryItem(gold_necklace);
+items.push(new goldenItem('golderItemA', 1000));
+items.push(new diamondItem('diamondA', 200000));
 
-var diamond_walkman = new DiamondInventoryItem(walkman);
+// console.log(items);
+// console.log(shoppers);
+let kian = shoppers.filter(element => element.name.toLowerCase() === 'kian')[0];
+let diamon = items.filter(element => element.name.toLowerCase() === 'diamonda')[0];
+console.log(diamon);
+console.log(kian.purchase);
+if (kian && diamon){
+  kian.printStatus();
+  kian.purchase(diamon);
+  kian.printStatus();
+}
 
-alex.purchase(necklace);
-alex.purchase(walkman);
 
-alex.printStatus();
