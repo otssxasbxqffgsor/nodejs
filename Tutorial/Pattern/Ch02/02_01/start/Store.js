@@ -1,11 +1,12 @@
 var Logger = require('./Logger');
-var logger = new Logger();
+
 
 class Store{
     constructor( name, inventory = []){
         this.name = name;
         this.inventory = inventory;
-        logger.log(`New Store: ${name} has ${inventory.length}`);
+        this.logger.log(`New Store: ${name} has ${inventory.length}`);
     }
+    get logger(){return new Logger();}
 }
 module.exports = Store;

@@ -1,26 +1,24 @@
+var shopper = require('./Shopper');
+var store = require('./Store');
 var Logger = require('./Logger');
-var Shopper = require('./Shopper');
-var Store = require('./Store');
-
 var logger = new Logger();
-
 logger.log('starting app...');
 
-var alex = new Shopper('alex', 500)
-var ski_shop = new Store('Steep and Deep Supplies', [
+var shopperA = new shopper('shopper A', 500);
+var storeA = new store('store A',[
     {
-        item: 'Downhill Skis',
+        item: 'Ski',
         qty: 5,
-        price: 750
+        price:500
     },
     {
-        item: 'Knit Hat',
+        item:'hats',
         qty: 20,
-        price: 5
+        price:5
     }
-])
+]);
 
-logger.log('finished config...');
+logger.log('finish config');
 
 console.log(`${logger.count} logs total`);
-logger.logs.map(log => console.log(` [${log.message}] [${log.timestamp}]`));
+logger.logs.map(log => console.log(`${log.message}`));
