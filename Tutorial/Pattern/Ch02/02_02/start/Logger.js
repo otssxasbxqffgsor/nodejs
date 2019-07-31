@@ -1,29 +1,16 @@
+var signleTone = require('./Signleton')
 class Logger {
-
-    constructor() {
+    constructor(){
         this.logs = [];
     }
-
-    get count() {
+    get count(){
         return this.logs.length;
     }
-
-    log(message) {
+    log(message){
         const timestamp = new Date().toISOString();
-        this.logs.push({ message, timestamp });
+        this.logs.push({message, timestamp});
         console.log(`${timestamp} - ${message}`);
     }
-
 }
+module.exports = Logger;
 
-class SignleTone{
-    constructor(){
-        if(!SignleTone.instace){
-            SignleTone.instace = new Logger;
-        }
-    }
-    getInstance(){
-        return SignleTone.instace
-    }
-}
-module.exports = SignleTone;
