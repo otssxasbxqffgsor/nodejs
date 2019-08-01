@@ -1,12 +1,11 @@
-var scout_prototype = require('./scout_prototype');
+var shoppperCloned = require('./ShopperCloned');
 
-var alex = scout_prototype.clone();
-alex.name = 'alex bank';
-alex.addItemToList('slingshot');
+var shopperA = new shoppperCloned('Kian').clone();
+// shopperA.name = 'kian'
+shopperA.add("kian item A");
 
-var eve = scout_prototype.clone();
-eve.name = 'Eve Procello';
-eve.addItemToList('reading light');
+var shopperB = new shoppperCloned('Rad').deepClone();
+shopperB.add('rad item b');
 
-console.log(`${alex.name}: ${alex.shoppingList}`);
-console.log(`${eve.name}: ${eve.shoppingList}`);
+console.log(`${shopperA.name}: ${shopperA.shoppingList}`);
+console.log(`${shopperB.name} : ${shopperB.shoppingList}`);
