@@ -1,9 +1,12 @@
-var userFactory = require('./userFactory');
+var userFactory = require('./UserFactory');
 
-var alex = userFactory('Alex Banks', 100);
-var eve = userFactory('Eve Porcello', 100, 'employee', 'This and That');
+var shopperA = new userFactory('Alex Banks', 100,'shopper');
+var employeeA = new userFactory('Eve Porcello', 50, 'employee');
 
-eve.payDay(100);
+// console.log(alex);
+// console.log(alex);
+shopperA.spend(100);
+console.log(shopperA.hasLeft())
 
-console.log( alex.toString() );
-console.log( eve.toString() );
+employeeA.earn(50);
+console.log(employeeA.hasLeft());

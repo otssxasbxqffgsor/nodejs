@@ -1,11 +1,13 @@
 var Employee = require('./Employee');
 var Shopper = require('./Shopper');
 
-var userFactory = ( name, money = 0, type, employer) => {
+class UserFactory {
+    constructor( name, money = 0, type) {
     if (type === 'employee'){
-        return new Employee(name, money, employer);
+        return  new Employee(name);//.earn(money);
     } else{
-        return new Shopper(name, money);
+        return  new Shopper(name)//.spend(money);
+    }
     }
 }
-module.exports = userFactory;
+module.exports = UserFactory;
