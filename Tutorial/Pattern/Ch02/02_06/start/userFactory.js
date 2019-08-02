@@ -2,11 +2,11 @@ var Employee = require('./Employee');
 var Shopper = require('./Shopper');
 
 class UserFactory {
-    constructor( name, money = 0, type) {
+    constructor( name, type) {
     if (type === 'employee'){
-        return  new Employee(name);//.earn(money);
+        return  new Employee(name);
     } else{
-        return  new Shopper(name)//.spend(money);
+        return  new Shopper(name)
     }
     }
 }

@@ -21,8 +21,8 @@ class Shopper extends Person {
     }
     spend(amount){
         this.money -= amount;
-        console.log(`${this.name} has spent $${amount} remaining is ${this.money}`);
+        console.log(`${this.name} 
+            has spent $${amount} remaining is ${this.money}`);
     }
-    test(){return "test";}
 }
 module.exports = Shopper;

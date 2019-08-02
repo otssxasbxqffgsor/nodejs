@@ -22,6 +22,5 @@ class Employee extends Person{
         this.money += amount;
         return (`${this.name} has added ${amount} remaining is ${this.money}.`)
     }
-    // test(){return "this.hasLeft";}
 }
 module.exports = Employee;
