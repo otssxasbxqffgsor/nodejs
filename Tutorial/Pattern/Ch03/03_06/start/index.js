@@ -1,22 +1,11 @@
-var CatalogItem = require('./CatalogItem');
-var CatalogGroup = require('./CatalogGroup');
+var catalog = require('./Catalog');
+var item  = require('./item');
 
-var boots = new CatalogItem("Leather Boots", 79.99);
-var sneakers = new CatalogItem("Kicks", 39.99);
-var flipFlops = new CatalogItem("California work boots", 19.99);
+var itemA = new item('Boots', 10);
+var itemB = new item('Short', 12);
+var itemC = new item('Jacket', 40);
+var catalog = new catalog('Catalog a',[itemA, itemB, itemC]);
 
-var group_shoes = new CatalogGroup("Shoes and Such", [boots, sneakers, flipFlops]);
-
-var group_food = new CatalogGroup("Food for while you try on clothes", [
-    new CatalogItem("Milkshake", 5.99),
-    new CatalogItem("French Fries", 3.99)
-]);
-
-var keychain = new CatalogItem("Key Chain", .99);
-
-var catalog = new CatalogGroup("Clothes and Food", 
-            [keychain, group_shoes, group_food]);
-
-console.log(`$${catalog.total}`);
+// console.log(`$${catalog.total}`);
 
 catalog.print();
