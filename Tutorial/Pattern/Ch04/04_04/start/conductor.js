@@ -1,8 +1,7 @@
-class Conductor {
-
+class Conductor{
+ 
     run(command){
-        console.log(`Executing command: ${command.name}`);
-        command.execute();
+        console.log(`Executing command : ${command.name}`);
     }
 }
 module.exports = new Conductor();

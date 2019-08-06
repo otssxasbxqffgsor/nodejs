@@ -5,9 +5,9 @@ class Catalog{
     }
 
     get total(){
-        return this.composite.reduce((total, nextItem)=>{
+        return this.composite.reduce((total, nextItem)=>
             total + nextItem.total
-        },0);
+        ,0);
     }
 
     print(){
