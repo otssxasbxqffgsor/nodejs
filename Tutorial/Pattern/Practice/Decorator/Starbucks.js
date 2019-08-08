@@ -1,4 +1,3 @@
-var Beverage = require('./Beverage');
 var DarkRoast = require('./DarkRoast');
 var Milk = require('./Mlik');
 var myCoffee = new DarkRoast();
