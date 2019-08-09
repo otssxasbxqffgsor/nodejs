@@ -41,3 +41,4 @@ class DinnerMenuIterator extends Iterator{
     }
 
 }
+module.exports = DinnerMenuIterator;

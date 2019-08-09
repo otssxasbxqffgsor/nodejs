@@ -1,11 +1,11 @@
 var Menu = require('./Menu');
 class PancakeHouseMenu extends Menu{
-    constructor(){
+    constructor(menuItems = []){
         super();
-        this.menuItems = [];
-        this.menuItems.push("name", "description");
-        this.menuItems.push("name", "description");
-
+        this.menuItems = menuItems;
+    }
+    addItem(name, price){
+        this.menuItems.push(name, price);
     }
     getMenuItems(){
         return this.menuItems;

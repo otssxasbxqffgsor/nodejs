@@ -1,9 +1,8 @@
 var Menu = require('./Menu');
-class DinnerMenu extends Menu{
+class DinnerMenu extends Menu {
     constructor(){
-        this.menuItems = [];
-        this.menuItems.push("name", "description");
-        this.menuItems.push("name", "description");
+        super();
+        this.menuItems = [{name:"Salad", price: 10}];
     }
     getMenuItems(){return this.menuItems;}
     createIterator(){return new DinnerMenuIterator(this.menuItems)};
