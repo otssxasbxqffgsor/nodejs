@@ -8,17 +8,26 @@ class DinnerMenuIterator extends Iterator{
 
     }
     next(){
-        if(this.menuItems.length > 0 && this.prt<this.menuItems.length)
-        {
-            var item = this.menuItems[this.prt];
-            position +=1;
-            return item;
-        }
-        return this.menuItems[this.prt];
+        // if(this.menuItems.length !== 0 && this.prt<this.menuItems.length)
+        // {
+        //     // var item = this.menuItems[this.prt];
+            this.prt +=1;
+            // return this.current();
+        // }
+        // return this.menuItems[0];
     }
     hasNext(){
         return (this.prt < this.menuItems.length || 
-            this.menuItems[this.prt] !== null)
+            this.menuItems[this.prt] !== undefined)
+    }
+    current(){
+        return this.menuItems[this.prt];
+    }
+    last(){
+        return this.menuItems[this.menuItems.length-1];
+    }
+    first(){
+        return this.menuItems[first];
     }
     remove(){
         if (this.prt>0){

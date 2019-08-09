@@ -1,7 +1,7 @@
 class Iterator{
     constructor(){};
     hasnext(){}
-    next();
+    next(){};
 }
 
 module.exports = Iterator;

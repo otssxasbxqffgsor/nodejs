@@ -13,14 +13,21 @@ class Waitress{
     }
     */
     printMenu(){
+
+        var it = this.dinnerMenu.createIterator();
+       
+        while(it.hasNext()){
+            this.printMenuItem(it.current());
+            it.next();
+        }
         // var pItems = this.pancakeMenu.getMenuItems();
         // for (item of pItems ){
         //     this.printMenuItem(item);
         // }
-        var dItems = this.dinnerMenu.getMenuItems();
-        for(var item of dItems){
-            this.printMenuItem(item);
-        }
+        // var dItems = this.dinnerMenu.getMenuItems();
+        // for(var item of dItems){
+        //     this.printMenuItem(item);
+        // }
     };
     printMenuItem(menuItem){
         console.log(`$Name: ${menuItem.name}, Price ${menuItem.price}`);
