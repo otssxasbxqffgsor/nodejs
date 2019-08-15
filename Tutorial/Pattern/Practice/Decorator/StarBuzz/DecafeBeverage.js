@@ -8,5 +8,3 @@ class DecafeBeverage extends IBeverage{
     }
 }
 module.exports = DecafeBeverage;
-
-module.exports = DecafeBeverage;
