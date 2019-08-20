@@ -11,7 +11,7 @@ MenuA.add('Menu First', [itemA ,itemB]);
 
 MenuB.add("Menu B",MenuA);
 MenuA.add("shows",new Item("shoes",200));
-MenuA.add("Suit",new Item("Suit",2200));
+MenuA.add("Adding Suit",new Item("Suit",2200));
 
 
 MenuB.print();

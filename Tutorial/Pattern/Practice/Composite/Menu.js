@@ -26,6 +26,7 @@ class Menu extends IMenu{
        for (let i in this.menuItems){
            total += this.menuItems[i].total();
        }
+       console.log(`${this.description} total is ${total}`);
        return total;
     }
     add(description, menuItems){
