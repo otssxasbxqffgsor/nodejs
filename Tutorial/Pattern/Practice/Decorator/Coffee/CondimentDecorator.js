@@ -7,8 +7,7 @@ class CondimentDecorator extends Beverage{
     }
     
     getDescription(){
-
-    };
+    }
 }
 
 module.exports = CondimentDecorator;
