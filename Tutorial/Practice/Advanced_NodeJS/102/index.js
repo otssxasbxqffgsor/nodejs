@@ -1,17 +1,20 @@
-let delay = (seconds, callBack) =>{ //-> run on B
-        setTimeout(callBack, seconds); 
-}
+let delay = (seconds) => new Promise((resolves, rejects) => {
+    setTimeout(() => {
+      //  resolves('the long delay has ended')
+        rejects('Rejecting ... ');
+    }, seconds);
+});
 
-function callBack(){ //--> this is function passed as value
-    console.log('END CALLBACK');
-}
-// runtime
-delay(2000, callBack); //--> this occures on B 
-console.log('END RUNTIME');//--> this occures on A
+console.log('start');
 
-/*
-yvr-co-lqi:102 kian$ node .
-END RUNTIME
-END CALLBACK
-yvr-co-lqi:102 kian$ 
-*/
+delay(1)
+    .then(console.log)
+    .then(()=> 42)
+    .then((number) => console.log(`hello world: ${number}`))  
+    .catch((err)=>{
+        console.log(` === CATCH === \n ${err} \n`);
+      }).finally(()=>{
+        console.log('=== FINALLY === \n');
+      })
+
+    console.log('end')
