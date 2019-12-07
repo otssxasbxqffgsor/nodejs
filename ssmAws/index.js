@@ -4,8 +4,14 @@ this.serviceName = 'AVLMServer';
 
 
 // this is new object
-let dbHostObject = {value:'', name:`/${this.siteName}/${this.serviceName}/DbHostName`};
-let alertServiceObject = {value:'', name:`/${this.siteName}/${this.serviceName}/AlertServiceApiUrl`};
+let dbHostObject = {value:'Success', name:`/${this.siteName}/${this.serviceName}/DbHostName`};
+let alertServiceObject = {value:'Success', name:`/${this.siteName}/${this.serviceName}/AlertServiceApiUrl`};
+
+this.dbModel =['alertServiceUrl', 'dbHostUrl'];
+this.dbModel.alertServiceUrl = alertServiceObject;
+this.dbModel.dbHostUrl = dbHostObject;
+// console.log(this.dbModel['alertServiceUrl'].value); 
+// return;
 
 // Object to be returned back to sequalized
 this.responseModel =[];
@@ -111,3 +117,4 @@ if ((typeof(this.ssmArray) === 'object') && (Array.isArray(this.ssmArray['Parame
 
 console.log('\n ===\n');    
 console.log(this.responseModel);
+console.log(this.dbModel.alertServiceUrl.value); 
